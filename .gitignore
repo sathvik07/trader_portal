@@ -1,0 +1,79 @@
+traders-portal-3a035-firebase-adminsdk-fbsvc-b6ef335527.json
+.env
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django migration files (optional)
+# Uncomment if you don’t want to track migration files
+# **/migrations/*.py
+# **/migrations/*.pyc
+
+# Environment variables
+.env
+*.env
+
+# Django local database
+*.sqlite3
+
+# Media and static files (optional, if generated)
+media/
+staticfiles/
+static/
+
+# VS Code or PyCharm
+.vscode/
+.idea/
+
+# Python virtual environment
+venv/
+env/
+.venv/
+
+# Logs
+*.log
+
+# macOS specific
+.DS_Store
+
+# Test coverage and reports
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Pytest cache
+.pytest_cache/
+
+# MyPy and Pylint
+.mypy_cache/
+.pyre/
+.pylint.d/
+
+# Build artifacts
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
