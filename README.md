@@ -9,7 +9,6 @@ This is a Django backend for the Trader Portal, deployed on an AWS EC2 Ubuntu in
 - **Backend**: Django (with Django REST Framework)
 - **Deployment**: Gunicorn + Nginx + Supervisor
 - **Environment Management**: `python-decouple` or `django-environ`
-- **Database**: PostgreSQL
 - **Hosting**: AWS EC2 (Ubuntu)
 
 ---
