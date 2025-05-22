@@ -19,7 +19,7 @@ class Command(BaseCommand):
                         roa_ttm = float(row['roa_ttm']) if row['roa_ttm'] != 'NULL' else None
 
                         if pe is None or roa_ttm is None:
-                            self.stderr.write(self.style.WARNING(f"⚠️ Skipping {co_code} due to NULL value(s)."))
+                            self.stderr.write(self.style.WARNING(f" Skipping {co_code} due to NULL value(s)."))
                             continue
 
                         ttm_ratios.objects.update_or_create(
@@ -31,9 +31,9 @@ class Command(BaseCommand):
                         )
                         count += 1
                     except Company.DoesNotExist:
-                        self.stderr.write(self.style.WARNING(f"⚠️ Company with co_code {co_code} not found. Skipping."))
+                        self.stderr.write(self.style.WARNING(f" Company with co_code {co_code} not found. Skipping."))
                     except ValueError as e:
-                        self.stderr.write(self.style.WARNING(f"⚠️ ValueError for co_code {row.get('company_id')}: {e}"))
+                        self.stderr.write(self.style.WARNING(f"️ ValueError for co_code {row.get('company_id')}: {e}"))
                 self.stdout.write(self.style.SUCCESS(f"✅ Imported {count} TTM ratios."))
         except FileNotFoundError:
-            self.stderr.write(self.style.ERROR("❌ File ttm_ratios.csv not found. Please place it in the project root."))
+            self.stderr.write(self.style.ERROR(" File ttm_ratios.csv not found. Please place it in the project root."))
