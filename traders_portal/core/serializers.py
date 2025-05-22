@@ -21,12 +21,18 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 # core/serializers.py
 from rest_framework import serializers
-from .models import Company, Watchlist
+from .models import Company, Watchlist, ttm_ratios
+
+class TtmRatiosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ttm_ratios
+        fields = ['pe', 'roa_ttm', 'company_id']
 
 class CompanySerializer(serializers.ModelSerializer):
+    ttm_ratios = TtmRatiosSerializer(read_only=True, many=True)
     class Meta:
         model = Company
-        fields = '__all__'
+        fields = ['co_code', 'company_name', 'symbol', 'scripcode', 'ttm_ratios']
 
 
 class WatchlistSerializer(serializers.ModelSerializer):

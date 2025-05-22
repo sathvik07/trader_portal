@@ -193,6 +193,11 @@ LOGGING = {
     },
 }
 
+import firebase_admin
+from firebase_admin import credentials
+
+FIREBASE_CRED = credentials.Certificate("/Users/guggarisathvik/trade_brains/traders_portal/traders-portal-3a035-firebase-adminsdk-fbsvc-b6ef335527.json")
+firebase_admin.initialize_app(FIREBASE_CRED)
 
 
 

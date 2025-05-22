@@ -230,11 +230,18 @@ class FirebaseLoginView(APIView):
 # -------------------------------
 # Company List View (Searchable)
 # -------------------------------
+# class CompanyListView(generics.ListAPIView):
+#     queryset = Company.objects.all()
+#     serializer_class = CompanySerializer
+#     filter_backends = [filters.SearchFilter]
+#     search_fields = ['company_name', 'symbol', 'scripcode', 'company_id', 'pe', 'roa_ttm']
+
 class CompanyListView(generics.ListAPIView):
-    queryset = Company.objects.all()
+    queryset = Company.objects.all().prefetch_related('ttm_ratios')
     serializer_class = CompanySerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['company_name', 'symbol', 'scripcode']
+    search_fields = ['company_name', 'symbol', 'scripcode', 'co_code', 'ttm_ratios__pe', 'ttm_ratios__roa_ttm']
+
 
 
 # -------------------------------
@@ -299,3 +306,12 @@ class WatchlistDeleteView(generics.DestroyAPIView):
             logger.error(f"[Watchlist] Delete error: {str(e)}")
             raise ValidationError("Failed to delete watchlist item.")
 
+
+
+
+
+# -------------------------------# Firebase Login View (Django Template)-
+from django.views.generic.base import TemplateView
+
+class FirebaseInitialLoginView(TemplateView):
+    template_name = 'core/firebase_login.html'
